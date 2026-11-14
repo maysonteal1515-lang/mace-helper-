@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "MACE Scratch Test Connector",
+  "version": "1.0.0",
+  "description": "Connects a local control panel to variables in your own Scratch projects.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://scratch.mit.edu/projects/*"
+  ],
+  "action": {
+    "default_title": "MACE Scratch Connector",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://scratch.mit.edu/projects/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "bridge.js"
+      ],
+      "matches": [
+        "https://scratch.mit.edu/*"
+      ]
+    }
+  ]
+}
